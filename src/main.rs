@@ -1,3 +1,6 @@
+mod sort;
+use sort::List;
 fn main() {
-    println!("Hello, world!");
+    let mut m = List::new();
+    m.push(32);
 }

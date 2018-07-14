@@ -1,5 +1,5 @@
 [package]
-name = "quickSort"
+name = "quick_sort"
 version = "0.1.0"
 authors = ["mhn1991 <mhn_1991@yahoo.com>"]
 
