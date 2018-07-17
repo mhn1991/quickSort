@@ -22,7 +22,6 @@ impl List{
     pub fn sort(&mut self,low:i32,high:i32){
         if low < high{
             let pi = self.partition(low,high);
-            //println!("{}",pi);
             self.sort(low,pi-1);
             self.sort(pi+1,high);
         }
@@ -34,13 +33,17 @@ impl List{
     
     fn partition(&mut self,low:i32,high:i32)->i32{
         let pivot = self.list.get(high as usize).unwrap().clone();
-        println!("{}",pivot);
-        let mut i = (low-1);
-        for j in (low as usize)..(high-1) as usize{
+        let mut i = low-1;
+        let mut j = low as usize;
+        loop{
             if self.list.get(j).unwrap() <= &pivot{
-                self.list.swap(i as usize,j);
                 i+=1;
+                self.list.swap(i as usize,j);
             }
+            if j == (high-1) as usize{
+                break;
+            }
+            j+=1;
         }
         i+=1;
       self.list.swap(i as usize,high as usize);
